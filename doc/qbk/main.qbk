@@ -1,0 +1,148 @@
+[/
+    Copyright (c) 2021 Alan de Freitas (alandefreitas @ gmail.com)
+
+    Distributed under the Boost Software License, Version 1.0. (See accompanying
+    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+    Official repository: https://github.com/boostorg/array
+]
+
+[/#############################################
+                  DOCUMENT INFO
+###############################################]
+
+[library Boost.Array
+    [id array]
+    [quickbook 1.6]
+    [copyright 2001-2004 Nicolai Josuttis]
+    [copyright 2012 Marshall Clow]
+    [purpose Array Library]
+    [license
+        Distributed under the Boost Software License, Version 1.0.
+        (See accompanying file LICENSE_1_0.txt or copy at
+        [@http://www.boost.org/LICENSE_1_0.txt])
+    ]
+    [authors [Josuttis, Nicolai] [Clow, Marshall]]
+    [category template]
+    [category generic]
+]
+
+[template mdash[] '''&mdash; ''']
+[template indexterm1[term1] '''<indexterm><primary>'''[term1]'''</primary></indexterm>''']
+[template indexterm2[term1 term2] '''<indexterm><primary>'''[term1]'''</primary><secondary>'''[term2]'''</secondary></indexterm>''']
+
+[template include_file[path][^<'''<ulink url="https://github.com/cppalliance/array/blob/master/include/'''[path]'''">'''[path]'''</ulink>'''>]]
+[template issue[n] '''<ulink url="https://github.com/cppalliance/array/issues/'''[n]'''">#'''[n]'''</ulink>''']
+
+[/ Named Requirements ]
+
+[def __Handler__                ['Handler]]
+
+[def __Allocator__              [@https://en.cppreference.com/w/cpp/named_req/Allocator ['Allocator]]]
+[def __CopyAssignable__         [@https://en.cppreference.com/w/cpp/named_req/CopyAssignable ['CopyAssignable]]]
+[def __CopyConstructible__      [@https://en.cppreference.com/w/cpp/named_req/CopyConstructible ['CopyConstructible]]]
+[def __Copyable__               [@https://en.cppreference.com/w/cpp/concepts/copyable ['Copyable]]]
+[def __DefaultConstructible__   [@https://en.cppreference.com/w/cpp/named_req/DefaultConstructible ['DefaultConstructible]]]
+[def __Hash__                   [@https://en.cppreference.com/w/cpp/named_req/Hash ['Hash]]]
+[def __InputIterator__          [@https://en.cppreference.com/w/cpp/named_req/InputIterator ['InputIterator]]]
+[def __MoveAssignable__         [@https://en.cppreference.com/w/cpp/named_req/MoveAssignable ['MoveAssignable]]]
+[def __MoveConstructible__      [@https://en.cppreference.com/w/cpp/named_req/MoveConstructible ['MoveConstructible]]]
+[def __RandomAccessIterator__   [@https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator ['RandomAccessIterator]]]
+[def __Regular__                [@https://en.cppreference.com/w/cpp/concepts/regular ['Regular]]]
+[def __Swappable__              [@https://en.cppreference.com/w/cpp/named_req/Swappable ['Swappable]]]
+
+[/ Boost types ]
+
+[def __boost_array__ [link array.ref.boost__array `boost::array`]]
+
+[def __array__ [link array.ref.boost__array `array`]]
+[def __array_swap__ [link array.ref.boost__array.swap `swap`]]
+[def __array_front__ [link array.ref.boost__array.front `front`]]
+[def __array_back__ [link array.ref.boost__array.back `back`]]
+[def __array_operator_lb__rb__ [link array.ref.boost__array.operator_lb__rb_ `operator[]`]]
+[def __array_at__ [link array.ref.boost__array.at `at`]]
+[def __array_size__ [link array.ref.boost__array.size `size`]]
+
+[/ std:: types ]
+
+[def __assert__       [@https://en.cppreference.com/w/cpp/error/assert `assert`]]
+[def __decltype__       [@https://en.cppreference.com/w/cpp/language/decltype `decltype`]]
+[def __initializer_list__       [@https://en.cppreference.com/w/cpp/array/initializer_list `std::initializer_list`]]
+[def __nullptr__       [@https://en.cppreference.com/w/cpp/language/nullptr `nullptr`]]
+
+[def __std_addressof__              [@https://en.cppreference.com/w/cpp/memory/addressof `std::addressof`]]
+[def __std_array__              [@https://en.cppreference.com/w/cpp/container/array `std::array`]]
+[def __std_basic_string__             [@https://en.cppreference.com/w/cpp/string/basic_string `std::basic_string`]]
+[def __std_basic_string_view__                   [@https://en.cppreference.com/w/cpp/string/basic_string_view `std::basic_string_view`]]
+[def __std_binder1st__                [@https://en.cppreference.com/w/cpp/array/functional/binder12 `std::binder1st`]]
+[def __std_complex__            [@https://en.cppreference.com/w/cpp/numeric/complex `std::complex`]]
+[def __std_declval__            [@https://en.cppreference.com/w/cpp/array/declval `std::declval`]]
+[def __std_enable_if__            [@https://en.cppreference.com/w/cpp/types/enable_if `std::enable_if`]]
+[def __std_enable_if_t__            [@https://en.cppreference.com/w/cpp/types/enable_if `std::enable_if_t`]]
+[def __std_fill__                     [@https://en.cppreference.com/w/cpp/algorithm/fill `std::fill`]]
+[def __std_hash__               [@https://en.cppreference.com/w/cpp/array/hash `std::hash`]]
+[def __std_initializer_list__       [@https://en.cppreference.com/w/cpp/array/initializer_list `std::initializer_list`]]
+[def __std_is_nothrow_constructible__ [@https://en.cppreference.com/w/cpp/types/is_constructible `std::is_nothrow_constructible`]]
+[def __std_make_pair__                [@https://en.cppreference.com/w/cpp/array/pair/make_pair `std::make_pair`]]
+[def __std_memory_resource__    [@https://en.cppreference.com/w/cpp/memory/memory_resource `std::pmr::memory_resource`]]
+[def __std_memset__                   [@https://en.cppreference.com/w/cpp/string/byte/memset `std::memset`]]
+[def __std_next__                   [@https://en.cppreference.com/w/cpp/iterator/next `std::next`]]
+[def __std_nullptr_t__                [@https://en.cppreference.com/w/cpp/types/nullptr_t `std::nullptr_t`]]
+[def __std_ostream__                  [@https://en.cppreference.com/w/cpp/io/basic_ostream `std::ostream`]]
+[def __std_ostream__            [@https://en.cppreference.com/w/cpp/io/basic_ostream `__std_ostream__`]]
+[def __std_pair__                     [@https://en.cppreference.com/w/cpp/array/pair `std::pair`]]
+[def __std_polymorphic_allocator__ [@https://en.cppreference.com/w/cpp/memory/polymorphic_allocator `std::pmr::polymorphic_allocator`]]
+[def __std_prev__                   [@https://en.cppreference.com/w/cpp/iterator/prev `std::prev`]]
+[def __std_ptrdiff_t__                [@https://en.cppreference.com/w/cpp/types/ptrdiff_t `std::ptrdiff_t`]]
+[def __std_remove__                [@https://en.cppreference.com/w/cpp/algorithm/remove `std::remove`]]
+[def __std_result_of__                [@https://en.cppreference.com/w/cpp/types/result_of `std::result_of`]]
+[def __std_sort__          [@https://en.cppreference.com/w/cpp/algorithm/sort `std::sort`]]
+[def __std_streambuf__          [@https://en.cppreference.com/w/cpp/header/streambuf `std::streambuf`]]
+[def __std_string__                   [@https://en.cppreference.com/w/cpp/string/basic_string `std::string`]]
+[def __std_string_view__                   [@https://en.cppreference.com/w/cpp/string/basic_string_view `std::string_view`]]
+[def __std_unary_function__      [@https://en.cppreference.com/w/cpp/array/functional/unary_function `std::unary_function`]]
+[def __std_unordered_map__      [@https://en.cppreference.com/w/cpp/container/unordered_map `std::unordered_map`]]
+[def __std_uses_allocator__     [@https://en.cppreference.com/w/cpp/memory/uses_allocator `std::uses_allocator`]]
+[def __std_vector__             [@https://en.cppreference.com/w/cpp/container/vector `std::vector`]]
+
+[/ Dingbats ]
+
+[def __good__ [role green \u2714]]
+[def __bad__  [role red   \u2718]]
+
+[/-----------------------------------------------------------------------------]
+
+[/ [import ../../example/pretty.cpp] ]
+[/ [import ../../example/validate.cpp] ]
+[/ [import ../../include/boost/array/impl/serialize.ipp] ]
+[/ [import ../../test/doc_background.cpp] ]
+[/ [import ../../test/doc_parsing.cpp] ]
+[/ [import ../../test/doc_quick_look.cpp] ]
+[/ [import ../../test/doc_serializing.cpp] ]
+[/ [import ../../test/doc_storage_ptr.cpp] ]
+[/ [import ../../test/doc_uses_allocator.cpp] ]
+[/ [import ../../test/doc_using_numbers.cpp] ]
+[/ [import ../../test/snippets.cpp] ]
+
+[include introduction.qbk]
+
+[include rationale.qbk]
+
+[include more_info.qbk]
+
+[section:quickref Reference]
+[xinclude quickref.xml]
+[endsect]
+
+[block'''<reference id="array_hidden"><title>This Page Intentionally Left Blank 1/2</title>''']
+
+[section:ref This Page Intentionally Left Blank 2/2]
+[include reference.qbk]
+[endsect]
+
+[block'''</reference>''']
+
+[xinclude index.xml]
+
+[include acknowledgements.qbk]
+

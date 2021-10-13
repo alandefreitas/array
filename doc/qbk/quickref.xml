@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE library PUBLIC "-//Boost//DTD BoostBook XML V1.0//EN" "../../../../tools/boostbook/dtd/boostbook.dtd">
+
+<informaltable frame="all">
+  <tgroup cols="4">
+    <colspec colname="a"/><colspec colname="b"/><colspec colname="c"/><colspec colname="d"/>
+    <thead><row>
+      <entry valign="center" namest="a" nameend="d"><bridgehead renderas="sect2">Array</bridgehead></entry>
+    </row></thead>
+    <tbody><row>
+      <entry valign="top">
+        <bridgehead renderas="sect3">Classes</bridgehead>
+        <simplelist type="vert" columns="1">
+            <member><link linkend="array.ref.boost__array">array</link></member>
+            <member><link linkend="array.ref.boost__hash_range">hash_range</link></member>
+            <member><link linkend="array.ref.boost__hash_value">hash_value</link></member>
+        </simplelist>
+      </entry>
+      <entry valign="top">
+        <bridgehead renderas="sect3">Functions</bridgehead>
+        <simplelist type="vert" columns="1">
+            <member><link linkend="array.ref.boost__get">get</link></member>
+            <member><link linkend="array.ref.boost__get_c_array">get_c_array</link></member>
+            <member><link linkend="array.ref.boost__swap">swap</link></member>
+        </simplelist>
+<!--        <bridgehead renderas="sect3">Type Traits</bridgehead>-->
+<!--        <simplelist type="vert" columns="1">-->
+<!--        </simplelist>-->
+      </entry>
+      <entry valign="top">
+        <bridgehead renderas="sect3">Operators</bridgehead>
+        <simplelist type="vert" columns="1">
+            <member><link linkend="array.ref.boost__operator_eq__eq_">operator==</link></member>
+            <member><link linkend="array.ref.boost__operator_not__eq_">operator!=</link></member>
+            <member><link linkend="array.ref.boost__operator_lt_">operator&lt;</link></member>
+            <member><link linkend="array.ref.boost__operator_lt__eq_">operator&lt;=</link></member>
+            <member><link linkend="array.ref.boost__operator_gt_">operator&gt;</link></member>
+            <member><link linkend="array.ref.boost__operator_gt__eq_">operator&gt;=</link></member>
+            <member><link linkend="array.ref.boost__operator_lt__lt_">operator&lt;&lt;</link></member>
+        </simplelist>
+<!--        <bridgehead renderas="sect3">Constants</bridgehead>-->
+<!--        <simplelist type="vert" columns="1">-->
+
+<!--        </simplelist>-->
+      </entry>
+      <entry valign="top">
+<!--        <bridgehead renderas="sect3">Aliases</bridgehead>-->
+<!--        <simplelist type="vert" columns="1">-->
+
+<!--        </simplelist>-->
+      </entry>
+    </row></tbody>
+  </tgroup>
+</informaltable>
