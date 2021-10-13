@@ -1,0 +1,29 @@
+[/
+
+    Copyright (c) 2001-2004 Nicolai M. Josuttis
+    Copyright (c) 2012 Marshall Clow
+    Copyright (c) 2021 Alan de Freitas (alandefreitas @ gmail.com)
+
+    Distributed under the Boost Software License, Version 1.0. (See accompanying
+    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+    Official repository: https://github.com/boostorg/utility
+]
+
+[section More information]
+[block'''<?dbhtml stop-chunking?>''']
+
+To find more details about using ordinary arrays in C++ and the framework of the STL, see e.g.:
+
+['The C++ Standard Library - A Tutorial and Reference]
+
+['by Nicolai M. Josuttis]
+
+['Addison Wesley Longman, 1999]
+
+['ISBN 0-201-37926-0]
+
+[@http://www.josuttis.com/ Home Page of Nicolai Josuttis]
+
+[endsect]
+

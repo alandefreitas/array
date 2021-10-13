@@ -1,0 +1,64 @@
+[/
+
+    Copyright (c) 2001-2004 Nicolai M. Josuttis
+    Copyright (c) 2012 Marshall Clow
+    Copyright (c) 2021 Alan de Freitas (alandefreitas @ gmail.com)
+
+    Distributed under the Boost Software License, Version 1.0. (See accompanying
+    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+    Official repository: https://github.com/boostorg/utility
+]
+
+[#sec:rationale]
+[section Design Rationale]
+[block'''<?dbhtml stop-chunking?>''']
+
+There was an important design tradeoff regarding the
+constructors: We could implement array as an "aggregate" (see
+Section 8.5.1, [dcl.init.aggr], of the C++ Standard). This would
+mean:
+
+["An array can be initialized with a
+  brace-enclosing, comma-separated list of initializers for the
+  elements of the container, written in increasing subscript
+  order:]
+
+```
+__boost_array__<int,4> a = { { 1, 2, 3 } };
+```
+
+Note that if there are fewer elements in the initializer list, then
+each remaining element gets default-initialized. Thus, it has a defined value.
+
+However, this approach has its drawbacks: [*passing no
+initializer list means that the elements
+have an indeterminate initial value], because the rule says
+that aggregates may have:
+
+* No user-declared constructors.
+* No private or protected non-static data members.
+* No base classes.
+* No virtual functions.
+
+Nevertheless, the current implementation uses this approach.
+
+Note that for standard conforming compilers it is possible to
+use fewer braces (according to 8.5.1 (11) of the Standard). That is,
+you can initialize an array as follows:
+
+```
+__boost_array__<int,4> a = { 1, 2, 3 };
+```
+
+I would appreciate any constructive feedback.
+[*Please note: I do not have time to read all boost
+mails. Thus, to make sure that feedback arrives to me, please send
+me a copy of each mail regarding this class.]
+
+The code is provided "as is" without expressed or implied
+warranty.
+
+
+[endsect]
+

@@ -1,0 +1,69 @@
+[/
+    Copyright (c) 2001-2004 Nicolai M. Josuttis
+    Copyright (c) 2012 Marshall Clow
+    Copyright (c) 2021 Alan de Freitas (alandefreitas @ gmail.com)
+
+    Distributed under the Boost Software License, Version 1.0. (See accompanying
+    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+    Official repository: https://github.com/boostorg/array
+]
+
+[section Introduction]
+[block'''<?dbhtml stop-chunking?>''']
+
+The C++ Standard Template Library STL as part of the C++
+Standard Library provides a framework for processing algorithms on
+different kind of containers. However, ordinary arrays do not
+provide the interface of STL containers (although, they provide
+the iterator interface of STL containers).
+
+As replacement for ordinary arrays, the STL provides class
+__std_vector__.  However, `__std_vector__<>` provides
+the semantics of dynamic arrays. Thus, it manages data to be able
+to change the number of elements. This results in some overhead in
+case only arrays with static size are needed.
+
+In his book, ['Generic Programming and the
+STL], Matthew H. Austern introduces a useful wrapper
+class for ordinary arrays with static size, called
+`block`. It is safer and has no worse performance than
+ordinary arrays. In ['The C++ Programming
+Language], 3rd edition, Bjarne Stroustrup introduces a
+similar class, called `c_array`, which I ([@http://www.josuttis.com Nicolai Josuttis]) present
+slightly modified in my book ['The C++ Standard Library -
+A Tutorial and Reference], called
+`carray`. This is the essence of these approaches
+spiced with many feedback from [@http://www.boost.org boost].
+
+After considering different names, we decided to name this
+class simply __array__.
+
+[note
+
+If you are using C++11, you should consider using __std_array__ instead of __boost_array__.
+
+This class was suggested to the C++ Standard in [@http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1548.htm N1548].
+__std_array__ has been part of the C++ standard since C++11.
+The differences between __boost_array__ and __std_array__ are minimal.
+
+]
+
+Class __array__ fulfills most
+but not all of the requirements of "reversible containers" (see
+Section 23.1, [lib.container.requirements] of the C++
+Standard). The reasons __array__ is not an reversible STL container is
+because:
+
+* No constructors are provided.
+* Elements may have an undetermined initial value (see [link sec:rationale the section called "Design Rationale"]).
+* `__array_swap__()` has no constant complexity.
+* `__array_size__()` is always constant, based on the second template argument of the type.
+* The container provides no allocator support.
+
+It does not fulfill the requirements of a "sequence" (see Section 23.1.1, [lib.sequence.reqmts] of the C++ Standard), except that:
+
+* `__array_front__()` and `__array_back__()` are provided.
+* `__array_operator_lb__rb__` and `__array_at__()` are provided.
+
+[endsect]
